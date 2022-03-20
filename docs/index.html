@@ -1,0 +1,96 @@
+<html>
+<head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <style>
+      .card-panel {
+          margin: 40px;
+      }
+      .prompt {
+          margin: 30px;
+      }
+      .contents {
+          margin-top: 100px;
+      }
+      body {
+          background-color: #263238;
+      }
+  </style>
+</head>
+<body>
+<div class="navbar-fixed">
+<nav class="blue-grey darken-4">
+    <div class="nav-wrapper blue-grey darken-4">
+    <div class="title center">
+        <h1>Writing prompts</h1>
+    </div>
+    </div>
+</nav>
+</div>
+
+<div class="row contents">
+  <div class="col s12">
+    <div class="card-panel teal lighten-5">
+      <h2 class="prompt blue-grey-text"></h2>
+    </div>
+
+    <div class="card-panel teal lighten-5">
+      <h2 class="prompt blue-grey-text"></h2>
+    </div>
+
+    <div class="card-panel teal lighten-5">
+      <h2 class="prompt blue-grey-text"></h2>
+    </div>
+  </div>
+</div>
+
+<script>
+WRITING_PROMPTS = [
+    "I feel fulfilled when...",
+    "When I'm at my best, I am...",
+    "Some of my biggest challenges are...",
+    "What surprises me most is...",
+    "Things I am thankful for are...",
+    "What often holds me back is...",
+    "My strengths are...",
+    "Values that are important to me are...",
+    "What would support me is...",
+    "What I appreciate about myself is...",
+    "Things that motivate me are...",
+    "What makes me feel loved is...",
+    "In the next year, I really want to...",
+    "Qualities I admire in others are...",
+    "Things that drain my energy are...",
+    "Things that bring me alive are...",
+    "Things I need more of in my life right now are...",
+    "Things that are going well in my life right now are...",
+    "What would make me happy right now is...",
+    "Things that I can acknowledge myself more for are...",
+    "I depend on others for...",
+    "Others depend on me for...",
+    "What's in my heart is...",
+    "I feel inspired by...",
+    "Things I tend to avoid are...",
+    "What is most important to me is...",
+    "Things I can do to take care of myself are...",
+    "Life is calling me to...",
+];
+
+let shuffled = WRITING_PROMPTS
+  .map(value => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value);
+
+const prompt_spans = document.getElementsByClassName("prompt");
+console.log(prompt_spans);
+Array.from(prompt_spans).forEach((element, index) => {
+    element.innerHTML = shuffled[index];
+});
+
+</script>
+</body>
+</html>
