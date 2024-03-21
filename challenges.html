@@ -1,0 +1,72 @@
+<html>
+<head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <style>
+      .card-panel {
+          margin: 1% 5%;
+      }
+      .prompt {
+          margin: 10px 30px;
+      }
+      .contents {
+          margin-top: 100px;
+      }
+      body {
+          background-color: #263238;
+      }
+  </style>
+</head>
+<body>
+<div class="navbar-fixed">
+<nav class="blue-grey darken-4">
+    <div class="nav-wrapper blue-grey darken-4">
+    <div class="title center">
+        <h1>Thought challenges</h1>
+    </div>
+    </div>
+</nav>
+</div>
+
+<div class="row contents">
+  <div class="col s12" id="prompt-list">
+    <div class="card-panel teal lighten-5">
+      <h4 class="prompt blue-grey-text"></h4>
+    </div>
+  </div>
+</div>
+
+<script>
+THOUGHT_CHALLENGES = [
+    "Am I falling into a thinking trap, e.g. catastrophizing or overestimating danger?",
+    "What is the evidence that this thought is true? What is the evidence that this it is not true?",
+    "Have I confused a thought with a fact?",
+    "What would I tell a friend if he/she had the same thought?",
+    "What would a friend say about my thought?",
+    "Am I 100% sure that ___________will happen?",
+    "How many times has __________happened before?",
+    "Is __________so important that my future depends on it?",
+    "What is the worst that could happen?",
+    "If it did happen, what could I do to cope with or handle it?",
+    "Is my judgment based on the way I feel instead of facts?",
+    "Am I confusing “possibility” with “certainty”? It may be possible, but is it likely?",
+    "Is this a hassle or a horror?",
+];
+
+let list = document.getElementById("prompt-list");
+THOUGHT_CHALLENGES.forEach(challenge => {
+  const node = document.getElementsByClassName("card-panel")[0];
+  let clone = node.cloneNode(true);
+  let promptEl = clone.getElementsByClassName("prompt")[0];
+  clone.getElementsByClassName("prompt")[0].innerHTML = challenge;
+  list.appendChild(clone);
+});
+list.removeChild(document.getElementsByClassName("card-panel")[0]);
+
+</script>
+</body>
+</html>
